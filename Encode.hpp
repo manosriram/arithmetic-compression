@@ -21,4 +21,5 @@ class Encode {
         void printTable(map<char, pair<double, double> > cumulativeOut);
         void buildTable(string data);
         void printFreq(map<char, int> freq);
+        void writeTable(fstream& fileTable);
 };

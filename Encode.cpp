@@ -46,7 +46,10 @@ void Encode::encodeSymbol(string data) {
     cout << low << " " << high << endl;
 }
 
-void Encode::writeBit(int bit) {
-    // cout << bit;
+void Encode::writeTable(fstream& fileTable) {
+    fileTable << "Character\tOccurences\tLow-Range\t\t\tHigh-Range" << endl;
+    for (auto itr = freq.begin(); itr != freq.end(); ++itr) {
+        fileTable << itr->first << "\t\t" << itr->second << "\t\t" << cumulativeOut[itr->first].first << "\t\t" << cumulativeOut[itr->first].second << endl;
+    }
 }
 

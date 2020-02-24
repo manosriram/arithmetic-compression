@@ -4,7 +4,9 @@
 int main() {
     cout << fixed << setprecision(16);
     string data, in;
-    fstream fileIn, fileOut;
+    fstream fileIn, fileOut, fileTable;
+    fileOut << fixed << setprecision(16);
+    fileTable << fixed << setprecision(16);
 
     fileIn.open("in.txt", ios::binary | ios::in);
 
@@ -18,9 +20,11 @@ int main() {
 
     fileIn.close();
     fileOut.open("out.txt", ios::binary | ios::out);
-    fileOut << fixed << setprecision(16);
 
-    fileOut << (double)enc.low;
+    fileOut << enc.low;
     fileOut.close();
+    fileTable.open("table.txt", ios::binary | ios::out);
+
+    enc.writeTable(fileTable);
 }
 
