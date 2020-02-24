@@ -3,7 +3,7 @@
 #include "Encode.cpp"
 int main() {
     cout << fixed << setprecision(16);
-    string data = "Hello world this is mano sriram qsdjlasj ljaj ajldsa";
+    string data = "Bill Gates and Steve Jobs.";
 
     Encode enc;
     enc.buildTable(data);
