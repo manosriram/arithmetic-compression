@@ -17,3 +17,5 @@ using std::endl;
 using std::make_pair;
 using std::setprecision;
 using std::fixed;
+using std::fstream;
+using std::ios;

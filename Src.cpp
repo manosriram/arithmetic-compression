@@ -3,11 +3,24 @@
 #include "Encode.cpp"
 int main() {
     cout << fixed << setprecision(16);
-    string data = "Bill Gates and Steve Jobs.";
+    string data, in;
+    fstream fileIn, fileOut;
+
+    fileIn.open("in.txt", ios::binary | ios::in);
+
+    while (getline(fileIn, data))
+        in += data;
 
     Encode enc;
-    enc.buildTable(data);
+    enc.buildTable(in);
     enc.printFreq(enc.freq);
-    enc.encodeSymbol(data);
+    enc.encodeSymbol(in);
+
+    fileIn.close();
+    fileOut.open("out.txt", ios::binary | ios::out);
+    fileOut << fixed << setprecision(16);
+
+    fileOut << (double)enc.low;
+    fileOut.close();
 }
 
