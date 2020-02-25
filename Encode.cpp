@@ -43,7 +43,7 @@ void Encode::encodeSymbol(string data) {
         high = low + (range * (double) cumulativeOut[ch].second);
         low = low + (range * (double) cumulativeOut[ch].first);
     }
-    cout << low << " " << high << endl;
+    // cout << low << " " << high << endl;
 }
 
 void Encode::writeTable(fstream& fileTable) {

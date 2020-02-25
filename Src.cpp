@@ -1,6 +1,9 @@
 #include "Incs.hpp"
 #include "Encode.hpp"
 #include "Encode.cpp"
+#include "Decode.hpp"
+#include "Decode.cpp"
+
 int main() {
     cout << fixed << setprecision(16);
     string data, in;
@@ -14,6 +17,7 @@ int main() {
         in += data;
 
     Encode enc;
+    Decode dec;
     enc.buildTable(in);
     enc.printFreq(enc.freq);
     enc.encodeSymbol(in);
@@ -26,5 +30,6 @@ int main() {
     fileTable.open("table.txt", ios::binary | ios::out);
 
     enc.writeTable(fileTable);
+    dec.decodeSymbol(enc.freq, enc.low, enc.cumulativeOut);
 }
 
